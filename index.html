@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="es-MX" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sora Eventos | Alexis Carmona Catering · La Paz, B.C.S.</title>
+  <meta name="description" content="Banquetes, barra de coctelería móvil, mesas temáticas y organización integral de eventos en La Paz, Baja California Sur. Cotiza sin compromiso por WhatsApp." />
+  <meta name="theme-color" content="#0F1115" />
+  <meta property="og:title" content="Sora Eventos | Alexis Carmona Catering" />
+  <meta property="og:description" content="Creamos experiencias únicas para tus eventos en La Paz, B.C.S. Cotiza sin compromiso." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1115'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%23D4AF37'%3ES%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..600&family=Plus+Jakarta+Sans:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=75" />
+
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0F1115',
+            pizarra: '#161920',
+            linea: '#262A33',
+            oro: { DEFAULT: '#D4AF37', claro: '#E6C866', hondo: '#A8862A' },
+            neon: '#2DD4BF',
+            hueso: '#F8FAFC',
+            niebla: '#94A3B8',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          transitionTimingFunction: { salida: 'cubic-bezier(0.16, 1, 0.3, 1)' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root { color-scheme: dark; }
+    html { background: #0F1115; scroll-padding-top: 6rem; }
+    body { font-feature-settings: "ss01"; }
+    ::selection { background: rgba(212, 175, 55, .35); color: #F8FAFC; }
+    input, select, textarea { caret-color: #D4AF37; }
+    :focus-visible { outline: 2px solid #D4AF37; outline-offset: 3px; border-radius: 6px; }
+    * { scrollbar-width: thin; scrollbar-color: #3a3f4a #0F1115; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0F1115; }
+    ::-webkit-scrollbar-thumb { background: #2c313b; border-radius: 10px; border: 2px solid #0F1115; }
+    a { text-underline-offset: .25em; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    h1, h2, h3 { text-wrap: balance; }
+
+    /* Reveal: visible by default; only hidden once JS confirms it can animate. */
+    .js-anim .reveal { opacity: 0; transform: translateY(28px); filter: blur(6px);
+      transition: opacity .9s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1), filter .9s cubic-bezier(.16,1,.3,1);
+      transition-delay: var(--d, 0ms); }
+    .js-anim .reveal.is-in { opacity: 1; transform: none; filter: none; }
+
+    /* Hero entrance */
+    .js-anim .hero-in { opacity: 0; transform: translateY(18px); animation: heroIn 1.1s cubic-bezier(.16,1,.3,1) forwards; animation-delay: var(--d, 0ms); }
+    @keyframes heroIn { to { opacity: 1; transform: none; } }
+    .hero-photo { transform: scale(1.06); animation: heroPhoto 2.4s cubic-bezier(.16,1,.3,1) forwards; }
+    @keyframes heroPhoto { to { transform: scale(1); } }
+
+    /* Neon arch: drawn tube with a glow, flickers on once */
+    .neon-tube { stroke: #2DD4BF; filter: drop-shadow(0 0 3px rgba(45,212,191,.9)) drop-shadow(0 0 14px rgba(45,212,191,.55)) drop-shadow(0 0 36px rgba(45,212,191,.35)); }
+    .js-anim .neon-arch { opacity: .08; }
+    .js-anim .neon-arch.is-on { animation: flickerOn 1.4s steps(1, end) forwards; }
+    @keyframes flickerOn {
+      0% { opacity: .08 } 8% { opacity: 1 } 12% { opacity: .15 } 20% { opacity: 1 } 24% { opacity: .3 }
+      34% { opacity: 1 } 38% { opacity: .6 } 46%, 100% { opacity: 1 }
+    }
+    .neon-text { color: #2DD4BF; text-shadow: 0 0 6px rgba(45,212,191,.6), 0 0 22px rgba(45,212,191,.35); }
+
+    /* Photo plates */
+    .plate img { transition: transform 1.2s cubic-bezier(.16,1,.3,1), filter .6s ease; }
+    .plate:hover img, .plate:focus-within img { transform: scale(1.06); }
+
+    /* Event selector */
+    .evento[aria-selected="true"] { background: rgba(212,175,55,.08); border-color: rgba(212,175,55,.55); }
+    .evento[aria-selected="true"] .evento-icono { background: #D4AF37; color: #0F1115; border-color: #D4AF37; }
+    .evento[aria-selected="true"] .evento-flecha { opacity: 1; transform: none; }
+
+    /* Form */
+    .campo { width: 100%; background: #0F1115; border: 1px solid #2c313b; border-radius: 12px; padding: .85rem 1rem; color: #F8FAFC; font-size: 1rem;
+      transition: border-color .2s ease, box-shadow .2s ease; }
+    .campo::placeholder { color: #7c8799; }
+    .campo:hover { border-color: #3d4350; }
+    .campo:focus { outline: none; border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,.18); }
+    .campo[aria-invalid="true"] { border-color: #F87171; }
+    select.campo { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right .9rem center; padding-right: 2.75rem; }
+    input[type="date"].campo::-webkit-calendar-picker-indicator { filter: invert(76%) sepia(43%) saturate(640%) hue-rotate(5deg); cursor: pointer; }
+    .opcion input { position: absolute; opacity: 0; pointer-events: none; }
+    .opcion span.caja { transition: background .2s ease, border-color .2s ease; }
+    .opcion input:checked + span.caja { background: #D4AF37; border-color: #D4AF37; }
+    .opcion input:checked + span.caja svg { opacity: 1; }
+    .opcion input:focus-visible + span.caja { outline: 2px solid #D4AF37; outline-offset: 3px; }
+    .opcion:has(input:checked) { border-color: rgba(212,175,55,.6); background: rgba(212,175,55,.06); }
+
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-photo, .js-anim .hero-in, .js-anim .neon-arch.is-on { animation: none !important; opacity: 1 !important; transform: none !important; }
+      .js-anim .reveal { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+      .js-anim .neon-arch { opacity: 1; }
+      .plate img { transition: none; }
+    }
+  </style>
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-anim');
+  </script>
+</head>
+
+<body class="bg-obsidian text-hueso font-sans antialiased">
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-oro focus:text-obsidian focus:px-4 focus:py-2 focus:rounded-lg">Saltar al contenido</a>
+
+  <!-- ============ NAV ============ -->
+  <header id="nav" class="fixed inset-x-0 top-0 z-50 px-3 sm:px-5 pt-3 sm:pt-4">
+    <nav aria-label="Principal" class="mx-auto max-w-6xl flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-obsidian/55 backdrop-blur-xl backdrop-saturate-150 px-4 sm:px-6 py-3 shadow-[0_10px_40px_-12px_rgba(0,0,0,.6)] transition-colors duration-500">
+      <a href="#inicio" class="group flex flex-col leading-none" aria-label="Sora Eventos, inicio">
+        <span class="font-display text-[1.15rem] sm:text-xl tracking-[0.18em] text-hueso">SORA <span class="text-oro">EVENTOS</span></span>
+        <span class="mt-1 text-[0.68rem] tracking-[0.08em] text-niebla">by Alexis Carmona Catering</span>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-8 text-sm text-niebla">
+        <li><a class="hover:text-hueso transition-colors" href="#inicio">Inicio</a></li>
+        <li><a class="hover:text-hueso transition-colors" href="#servicios">Servicios</a></li>
+        <li><a class="hover:text-hueso transition-colors" href="#eventos">Eventos</a></li>
+        <li><a class="hover:text-hueso transition-colors" href="#galeria">Galería</a></li>
+        <li><a class="hover:text-hueso transition-colors" href="#cotizar">Cotizar</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <a href="https://wa.me/526121553885?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20evento%20con%20Sora%20Eventos." target="_blank" rel="noopener"
+           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-oro text-obsidian text-sm font-semibold px-4 py-2.5 hover:bg-oro-claro active:scale-[.97] transition">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.23-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43m8.03-17.46A11.27 11.27 0 0 0 12.05.71C5.79.71.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.29l5.69-1.49a11.33 11.33 0 0 0 5.75 1.47h.01c6.26 0 11.35-5.1 11.35-11.36 0-3.03-1.18-5.88-3.33-8.02"/></svg>
+          Cotizar por WhatsApp
+        </a>
+        <button id="menuBtn" type="button" class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-hueso hover:border-oro/60 transition" aria-expanded="false" aria-controls="menuMovil" aria-label="Abrir menú">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="menuMovil" class="lg:hidden mx-auto max-w-6xl mt-2 hidden rounded-2xl border border-white/10 bg-pizarra/95 backdrop-blur-xl p-2 shadow-[0_20px_50px_-15px_rgba(0,0,0,.7)]">
+      <ul class="flex flex-col text-base">
+        <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#inicio">Inicio</a></li>
+        <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#servicios">Servicios</a></li>
+        <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#eventos">Eventos</a></li>
+        <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#galeria">Galería</a></li>
+        <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#cotizar">Cotizar</a></li>
+        <li class="p-2"><a href="https://wa.me/526121553885?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20evento%20con%20Sora%20Eventos." target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-xl bg-oro text-obsidian font-semibold px-4 py-3">Cotizar por WhatsApp</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ============ HERO ============ -->
+    <section id="inicio" class="relative isolate min-h-[100svh] flex items-end overflow-hidden">
+      <img class="hero-photo absolute inset-0 -z-20 h-full w-full object-cover object-center"
+           src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=75"
+           srcset="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=75 1920w, https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=2600&q=72 2600w"
+           sizes="100vw" alt="Mesa larga de banquete con copas, flores y luces cálidas al anochecer" fetchpriority="high" />
+      <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,#0F1115_0%,rgba(15,17,21,.88)_28%,rgba(15,17,21,.35)_62%,rgba(15,17,21,.55)_100%)]"></div>
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(120%_80%_at_0%_100%,rgba(15,17,21,.85),transparent_60%)]"></div>
+      <div class="absolute inset-0 -z-10 bg-obsidian/45 sm:hidden"></div>
+
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-8 pb-14 sm:pb-20 pt-36">
+        <h1 class="hero-in font-display font-medium text-[clamp(2.6rem,7.2vw,5.6rem)] leading-[1.02] tracking-[-0.02em] max-w-[14ch]" style="--d:120ms">
+          Creamos experiencias <em class="italic font-normal text-oro">únicas</em> para tus eventos
+        </h1>
+        <p class="hero-in mt-6 max-w-[56ch] text-base sm:text-lg leading-relaxed text-[#CBD5E1]" style="--d:260ms">
+          Banquetes gourmet, barra de coctelería móvil, mesas temáticas y coordinación integral. Calidad, presentación y atención que marcan la diferencia.
+        </p>
+        <div class="hero-in mt-9 flex flex-col sm:flex-row gap-3" style="--d:400ms">
+          <a href="#cotizar" class="group inline-flex items-center justify-center gap-2 rounded-full bg-oro px-7 py-4 text-[0.95rem] font-semibold text-obsidian shadow-[0_12px_30px_-10px_rgba(212,175,55,.55)] hover:bg-oro-claro active:scale-[.98] transition">
+            Cotizar mi evento
+            <i data-lucide="arrow-down-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5"></i>
+          </a>
+          <a href="#servicios" class="inline-flex items-center justify-center gap-2 rounded-full border border-hueso/25 px-7 py-4 text-[0.95rem] font-medium text-hueso hover:border-oro/70 hover:text-oro transition">
+            Ver servicios
+          </a>
+        </div>
+        <ul class="hero-in mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-niebla" style="--d:540ms">
+          <li class="inline-flex items-center gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-oro"></i>La Paz, Baja California Sur</li>
+          <li class="inline-flex items-center gap-2"><i data-lucide="sparkles" class="h-4 w-4 text-oro"></i>Celebrando con ustedes desde 2016</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section id="servicios" class="relative bg-obsidian py-24 sm:py-32">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <h2 class="reveal lg:col-span-7 font-display text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.08] tracking-[-0.015em]">
+            De la cocina a la última copa, <span class="text-oro">un solo equipo</span>
+          </h2>
+          <p class="reveal lg:col-span-5 text-niebla leading-relaxed max-w-[52ch]" style="--d:120ms">
+            Comida, bebida, decoración y personal coordinados por las mismas manos. Tú eliges lo que necesitas; nosotros nos encargamos de que todo llegue a tiempo y se vea impecable.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-4 sm:gap-5 md:grid-cols-12">
+          <!-- Banquetes -->
+          <article class="plate reveal relative overflow-hidden rounded-[20px] border border-white/[.07] md:col-span-6 md:row-span-2 min-h-[24rem] md:min-h-[40rem] flex items-end">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy"
+                 src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=72"
+                 srcset="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=72 1100w"
+                 sizes="(min-width: 768px) 50vw, 100vw" alt="Platillo gourmet emplatado sobre una mesa con copas" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/55 to-transparent"></div>
+            <div class="relative p-7 sm:p-9">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-oro/50 bg-obsidian/40 text-oro"><i data-lucide="utensils-crossed" class="h-5 w-5"></i></span>
+              <h3 class="mt-5 font-display text-3xl sm:text-[2.3rem] leading-tight">Banquetes y Catering</h3>
+              <p class="mt-3 max-w-[44ch] text-[#CBD5E1] leading-relaxed">Menús personalizados, bufetes y platillos emplatados con presentación impecable.</p>
+            </div>
+          </article>
+
+          <!-- Barra -->
+          <article class="plate reveal relative overflow-hidden rounded-[20px] border border-neon/30 md:col-span-6 min-h-[19rem] flex items-end" style="--d:90ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy"
+                 src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=72"
+                 alt="Tres cócteles artesanales servidos sobre una barra iluminada" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/75 to-obsidian/10"></div>
+            <div class="relative p-7">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neon/60 bg-obsidian/40 text-neon shadow-[0_0_18px_-2px_rgba(45,212,191,.55)]"><i data-lucide="martini" class="h-5 w-5"></i></span>
+              <h3 class="mt-4 font-display text-2xl sm:text-[1.75rem] leading-tight">Barra de Coctelería Móvil</h3>
+              <p class="mt-2 max-w-[46ch] text-[#CBD5E1] leading-relaxed text-[0.95rem]">Barra iluminada estilo neón, mixología artesanal con y sin alcohol, cristalería y bartenders.</p>
+            </div>
+          </article>
+
+          <!-- Mesas -->
+          <article class="plate reveal relative overflow-hidden rounded-[20px] border border-white/[.07] md:col-span-3 min-h-[19rem] flex items-end" style="--d:160ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy"
+                 src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=800&q=72"
+                 alt="Pastel blanco decorado con fresas y moras en una mesa de postres" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-obsidian/5"></div>
+            <div class="relative p-6">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-oro/50 bg-obsidian/40 text-oro"><i data-lucide="cake-slice" class="h-[18px] w-[18px]"></i></span>
+              <h3 class="mt-4 font-display text-xl sm:text-[1.45rem] leading-tight">Mesas Temáticas y de Dulces</h3>
+              <p class="mt-2 text-[#CBD5E1] leading-relaxed text-[0.92rem]">Mesas de postres, snacks, centros de mesa y detalles diseñados a la medida de tu celebración.</p>
+            </div>
+          </article>
+
+          <!-- Organización -->
+          <article class="plate reveal relative overflow-hidden rounded-[20px] border border-white/[.07] md:col-span-3 min-h-[19rem] flex items-end" style="--d:220ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy"
+                 src="https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&w=800&q=72"
+                 alt="Salón decorado con telas, candiles y mesas listas para un evento" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-obsidian/5"></div>
+            <div class="relative p-6">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-oro/50 bg-obsidian/40 text-oro"><i data-lucide="clipboard-check" class="h-[18px] w-[18px]"></i></span>
+              <h3 class="mt-4 font-display text-xl sm:text-[1.45rem] leading-tight">Organización Integral</h3>
+              <p class="mt-2 text-[#CBD5E1] leading-relaxed text-[0.92rem]">Logística completa, mobiliario y personal de servicio para que solo te dediques a disfrutar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LA BARRA (neón) ============ -->
+    <section id="barra" class="relative overflow-hidden bg-[#0B0D11] py-24 sm:py-32">
+      <div aria-hidden="true" class="pointer-events-none absolute -left-40 top-1/2 h-[36rem] w-[36rem] -translate-y-1/2 rounded-full bg-neon/[.07] blur-3xl"></div>
+      <div class="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
+        <!-- Arco de neón con foto -->
+        <figure class="reveal relative mx-auto w-full max-w-[26rem]">
+          <div class="relative aspect-[3/4]">
+            <div class="absolute inset-[14px] overflow-hidden rounded-t-[999px] rounded-b-[14px]">
+              <img class="h-full w-full object-cover" loading="lazy"
+                   src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&h=1067&q=72"
+                   alt="Cóctel artesanal con hierbas sobre una barra oscura" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0B0D11]/70 via-transparent to-transparent"></div>
+            </div>
+            <svg class="neon-arch absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 300 400" fill="none" preserveAspectRatio="none" aria-hidden="true">
+              <path class="neon-tube" vector-effect="non-scaling-stroke" stroke-width="3.5" stroke-linecap="round"
+                    d="M4 396 V150 A146 146 0 0 1 296 150 V396" />
+            </svg>
+          </div>
+          <figcaption class="mt-5 text-center font-display italic text-2xl neon-text">Let’s drink</figcaption>
+        </figure>
+
+        <div>
+          <h2 class="reveal font-display text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.08] tracking-[-0.015em]">
+            La barra que <span class="neon-text">enciende</span> la noche
+          </h2>
+          <p class="reveal mt-6 max-w-[52ch] text-niebla leading-relaxed" style="--d:100ms">
+            Llevamos nuestra barra móvil iluminada a tu evento, con bartenders que preparan cada bebida al momento. Para que tus invitados tengan dónde reunirse, brindar y tomarse la foto.
+          </p>
+          <ul class="mt-9 grid gap-4 sm:grid-cols-2">
+            <li class="reveal flex gap-3" style="--d:140ms">
+              <i data-lucide="glass-water" class="mt-0.5 h-5 w-5 shrink-0 text-neon"></i>
+              <span><span class="block font-semibold">Mixología artesanal</span><span class="text-sm text-niebla">Cócteles de la casa y clásicos, escarchados y decorados.</span></span>
+            </li>
+            <li class="reveal flex gap-3" style="--d:180ms">
+              <i data-lucide="citrus" class="mt-0.5 h-5 w-5 shrink-0 text-neon"></i>
+              <span><span class="block font-semibold">Con y sin alcohol</span><span class="text-sm text-niebla">Mocktails y aguas frescas para todas las edades.</span></span>
+            </li>
+            <li class="reveal flex gap-3" style="--d:220ms">
+              <i data-lucide="wine" class="mt-0.5 h-5 w-5 shrink-0 text-neon"></i>
+              <span><span class="block font-semibold">Cristalería incluida</span><span class="text-sm text-niebla">Copas y vasos adecuados para cada bebida.</span></span>
+            </li>
+            <li class="reveal flex gap-3" style="--d:260ms">
+              <i data-lucide="users" class="mt-0.5 h-5 w-5 shrink-0 text-neon"></i>
+              <span><span class="block font-semibold">Bartenders profesionales</span><span class="text-sm text-niebla">Atención en barra durante todo el evento.</span></span>
+            </li>
+          </ul>
+          <a href="#cotizar" data-servicio="Barra de Coctelería" class="reveal mt-10 inline-flex items-center gap-2 rounded-full border border-neon/60 px-6 py-3.5 text-sm font-semibold text-neon hover:bg-neon hover:text-obsidian transition" style="--d:300ms">
+            Quiero la barra en mi evento
+            <i data-lucide="arrow-right" class="h-4 w-4"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVENTOS ============ -->
+    <section id="eventos" class="bg-pizarra py-24 sm:py-32">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <h2 class="reveal font-display text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.08] tracking-[-0.015em] max-w-[18ch]">
+          ¿Qué vamos a <span class="text-oro italic">celebrar</span>?
+        </h2>
+        <p class="reveal mt-5 max-w-[56ch] text-niebla leading-relaxed" style="--d:100ms">Elige tu tipo de evento y te llevamos directo a la cotización con todo listo.</p>
+
+        <div class="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
+          <div role="tablist" aria-label="Tipos de evento" aria-orientation="vertical" class="reveal flex flex-col gap-3 lg:col-span-5" style="--d:140ms">
+            <button role="tab" id="tab-boda" aria-controls="panel-evento" aria-selected="true" data-evento="Boda" class="evento group flex items-center gap-4 rounded-2xl border border-white/[.08] px-5 py-4 text-left transition hover:border-oro/40">
+              <span class="evento-icono inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-oro/40 text-oro transition"><i data-lucide="heart" class="h-5 w-5"></i></span>
+              <span class="flex-1"><span class="block font-display text-xl">Bodas</span><span class="text-sm text-niebla">Elegancia y atención al detalle</span></span>
+              <i data-lucide="arrow-right" class="evento-flecha h-5 w-5 text-oro opacity-0 -translate-x-1 transition"></i>
+            </button>
+            <button role="tab" id="tab-xv" aria-controls="panel-evento" aria-selected="false" tabindex="-1" data-evento="XV Años" class="evento group flex items-center gap-4 rounded-2xl border border-white/[.08] px-5 py-4 text-left transition hover:border-oro/40">
+              <span class="evento-icono inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-oro/40 text-oro transition"><i data-lucide="crown" class="h-5 w-5"></i></span>
+              <span class="flex-1"><span class="block font-display text-xl">XV Años</span><span class="text-sm text-niebla">Montajes modernos y vibrantes</span></span>
+              <i data-lucide="arrow-right" class="evento-flecha h-5 w-5 text-oro opacity-0 -translate-x-1 transition"></i>
+            </button>
+            <button role="tab" id="tab-cumple" aria-controls="panel-evento" aria-selected="false" tabindex="-1" data-evento="Cumpleaños" class="evento group flex items-center gap-4 rounded-2xl border border-white/[.08] px-5 py-4 text-left transition hover:border-oro/40">
+              <span class="evento-icono inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-oro/40 text-oro transition"><i data-lucide="party-popper" class="h-5 w-5"></i></span>
+              <span class="flex-1"><span class="block font-display text-xl">Cumpleaños y Reuniones</span><span class="text-sm text-niebla">Paquetes flexibles para celebrar</span></span>
+              <i data-lucide="arrow-right" class="evento-flecha h-5 w-5 text-oro opacity-0 -translate-x-1 transition"></i>
+            </button>
+            <button role="tab" id="tab-corp" aria-controls="panel-evento" aria-selected="false" tabindex="-1" data-evento="Evento Corporativo" class="evento group flex items-center gap-4 rounded-2xl border border-white/[.08] px-5 py-4 text-left transition hover:border-oro/40">
+              <span class="evento-icono inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-oro/40 text-oro transition"><i data-lucide="briefcase" class="h-5 w-5"></i></span>
+              <span class="flex-1"><span class="block font-display text-xl">Eventos Corporativos</span><span class="text-sm text-niebla">Puntualidad y presentación ejecutiva</span></span>
+              <i data-lucide="arrow-right" class="evento-flecha h-5 w-5 text-oro opacity-0 -translate-x-1 transition"></i>
+            </button>
+          </div>
+
+          <div id="panel-evento" role="tabpanel" aria-labelledby="tab-boda" class="reveal relative overflow-hidden rounded-[22px] border border-white/[.08] lg:col-span-7 min-h-[28rem] flex items-end" style="--d:200ms">
+            <img id="evento-img" class="absolute inset-0 h-full w-full object-cover transition-opacity duration-500" loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=72" alt="Mesa de boda con flores y vajilla blanca" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/65 to-transparent"></div>
+            <div class="relative p-7 sm:p-10">
+              <h3 id="evento-titulo" class="font-display text-3xl sm:text-4xl">Bodas</h3>
+              <p id="evento-texto" class="mt-3 max-w-[48ch] text-[#CBD5E1] leading-relaxed">Elegancia, degustación previa y atención al detalle. Diseñamos el menú contigo y lo probamos antes del gran día.</p>
+              <button id="evento-cta" type="button" class="mt-7 inline-flex items-center gap-2 rounded-full bg-oro px-6 py-3.5 text-sm font-semibold text-obsidian hover:bg-oro-claro active:scale-[.98] transition">
+                <span id="evento-cta-texto">Cotizar mi boda</span>
+                <i data-lucide="arrow-down-right" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section id="galeria" class="bg-obsidian py-24 sm:py-32">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <h2 class="reveal font-display text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.08] tracking-[-0.015em]">Cada detalle, <span class="text-oro">a la vista</span></h2>
+          <p class="reveal text-xs text-niebla/80 sm:text-right" style="--d:100ms">Imágenes ilustrativas</p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 md:auto-rows-[15rem]">
+          <figure class="plate reveal relative overflow-hidden rounded-2xl col-span-2 md:col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=72" alt="Bufete con charolas de comida caliente y guarniciones" />
+            <figcaption class="absolute left-3 bottom-3 rounded-full bg-obsidian/75 backdrop-blur px-3.5 py-1.5 text-xs font-medium text-hueso">Bufete para banquete</figcaption>
+          </figure>
+          <figure class="plate reveal relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-auto" style="--d:80ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1556855810-ac404aa91e85?auto=format&fit=crop&w=700&q=72" alt="Margarita roja escarchada con limón" />
+            <figcaption class="absolute left-3 bottom-3 rounded-full bg-obsidian/75 backdrop-blur px-3.5 py-1.5 text-xs font-medium text-hueso">Bebidas escarchadas</figcaption>
+          </figure>
+          <figure class="plate reveal relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-auto" style="--d:140ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=700&q=72" alt="Invitados brindando con copas en una mesa decorada" />
+            <figcaption class="absolute left-3 bottom-3 rounded-full bg-obsidian/75 backdrop-blur px-3.5 py-1.5 text-xs font-medium text-hueso">El brindis</figcaption>
+          </figure>
+          <figure class="plate reveal relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-auto" style="--d:80ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=72" alt="Cupcakes con betún rosa y fresas" />
+            <figcaption class="absolute left-3 bottom-3 rounded-full bg-obsidian/75 backdrop-blur px-3.5 py-1.5 text-xs font-medium text-hueso">Mesa de dulces</figcaption>
+          </figure>
+          <figure class="plate reveal relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-auto" style="--d:140ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=72" alt="Platillos de carne y ensalada servidos en mesa de madera" />
+            <figcaption class="absolute left-3 bottom-3 rounded-full bg-obsidian/75 backdrop-blur px-3.5 py-1.5 text-xs font-medium text-hueso">Platillos emplatados</figcaption>
+          </figure>
+          <figure class="plate reveal relative overflow-hidden rounded-2xl col-span-2 md:col-span-1 aspect-[16/9] md:aspect-auto" style="--d:200ms">
+            <img class="absolute inset-0 h-full w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=72" alt="Salón de eventos con mesas redondas y candiles encendidos" />
+            <figcaption class="absolute left-3 bottom-3 rounded-full bg-obsidian/75 backdrop-blur px-3.5 py-1.5 text-xs font-medium text-hueso">Montaje de salón</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COTIZADOR ============ -->
+    <section id="cotizar" class="relative bg-pizarra py-24 sm:py-32">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div class="lg:col-span-5">
+            <h2 class="reveal font-display text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.08] tracking-[-0.015em]">Cotiza <span class="text-oro italic">sin compromiso</span></h2>
+            <p class="reveal mt-5 max-w-[46ch] text-niebla leading-relaxed" style="--d:100ms">Cuéntanos lo básico y te abrimos WhatsApp con el mensaje ya escrito. Solo tienes que enviarlo; te respondemos con opciones y disponibilidad.</p>
+
+            <!-- Vista previa del mensaje -->
+            <div class="reveal mt-10 hidden lg:block" style="--d:160ms" aria-hidden="true">
+              <div class="rounded-[22px] border border-white/[.08] bg-[#0b141a] p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,.8)]">
+                <div class="flex items-center gap-3 border-b border-white/[.06] pb-4">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-oro font-display text-lg text-obsidian">S</span>
+                  <span><span class="block text-sm font-semibold">Sora Eventos</span><span class="text-xs text-niebla">+52 612 155 3885</span></span>
+                </div>
+                <div class="mt-4 flex justify-end">
+                  <p id="preview" class="max-w-[92%] whitespace-pre-line rounded-[16px_4px_16px_16px] bg-[#005c4b] px-4 py-3 text-[0.86rem] leading-relaxed text-[#e9edef]"></p>
+                </div>
+              </div>
+              <p class="mt-3 text-xs text-niebla">Así se verá tu mensaje.</p>
+            </div>
+          </div>
+
+          <form id="cotizador" novalidate class="reveal lg:col-span-7 rounded-[24px] border border-white/[.08] bg-obsidian/70 p-6 sm:p-9" style="--d:120ms">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div class="sm:col-span-2">
+                <label for="nombre" class="block text-sm font-medium">Nombre completo</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" class="campo mt-2" placeholder="Ej. Mariana López" aria-describedby="err-nombre" />
+                <p id="err-nombre" class="mt-1.5 hidden text-sm text-red-400"></p>
+              </div>
+
+              <div>
+                <label for="tipo" class="block text-sm font-medium">Tipo de evento</label>
+                <select id="tipo" name="tipo" class="campo mt-2" aria-describedby="err-tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Boda</option>
+                  <option>XV Años</option>
+                  <option>Cumpleaños</option>
+                  <option>Evento Corporativo</option>
+                  <option>Otro</option>
+                </select>
+                <p id="err-tipo" class="mt-1.5 hidden text-sm text-red-400"></p>
+              </div>
+
+              <div>
+                <label for="fecha" class="block text-sm font-medium">Fecha tentativa</label>
+                <input id="fecha" name="fecha" type="date" class="campo mt-2 tabular" aria-describedby="err-fecha" />
+                <p id="err-fecha" class="mt-1.5 hidden text-sm text-red-400"></p>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="invitados" class="block text-sm font-medium">Número aproximado de invitados</label>
+                <select id="invitados" name="invitados" class="campo mt-2" aria-describedby="err-invitados">
+                  <option value="">Selecciona…</option>
+                  <option>Menos de 50</option>
+                  <option>50 - 100</option>
+                  <option>100 - 200</option>
+                  <option>Más de 200</option>
+                </select>
+                <p id="err-invitados" class="mt-1.5 hidden text-sm text-red-400"></p>
+              </div>
+
+              <fieldset class="sm:col-span-2" aria-describedby="err-servicios">
+                <legend class="text-sm font-medium">Servicios de interés</legend>
+                <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                  <label class="opcion relative flex cursor-pointer items-center gap-3 rounded-xl border border-[#2c313b] px-4 py-3.5 transition hover:border-[#3d4350]">
+                    <input type="checkbox" name="servicios" value="Banquete/Comida" />
+                    <span class="caja inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-[#4a5160]"><svg class="h-3.5 w-3.5 opacity-0 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                    <span class="text-[0.95rem]">Banquete / Comida</span>
+                  </label>
+                  <label class="opcion relative flex cursor-pointer items-center gap-3 rounded-xl border border-[#2c313b] px-4 py-3.5 transition hover:border-[#3d4350]">
+                    <input type="checkbox" name="servicios" value="Barra de Coctelería" />
+                    <span class="caja inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-[#4a5160]"><svg class="h-3.5 w-3.5 opacity-0 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                    <span class="text-[0.95rem]">Barra de Coctelería</span>
+                  </label>
+                  <label class="opcion relative flex cursor-pointer items-center gap-3 rounded-xl border border-[#2c313b] px-4 py-3.5 transition hover:border-[#3d4350]">
+                    <input type="checkbox" name="servicios" value="Mesa de Dulces/Temática" />
+                    <span class="caja inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-[#4a5160]"><svg class="h-3.5 w-3.5 opacity-0 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                    <span class="text-[0.95rem]">Mesa de Dulces / Temática</span>
+                  </label>
+                  <label class="opcion relative flex cursor-pointer items-center gap-3 rounded-xl border border-[#2c313b] px-4 py-3.5 transition hover:border-[#3d4350]">
+                    <input type="checkbox" name="servicios" value="Organización Completa" />
+                    <span class="caja inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-[#4a5160]"><svg class="h-3.5 w-3.5 opacity-0 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                    <span class="text-[0.95rem]">Organización Completa</span>
+                  </label>
+                </div>
+                <p id="err-servicios" class="mt-1.5 hidden text-sm text-red-400"></p>
+              </fieldset>
+            </div>
+
+            <button type="submit" class="mt-9 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-oro px-7 py-4 text-base font-semibold text-obsidian shadow-[0_14px_34px_-12px_rgba(212,175,55,.6)] hover:bg-oro-claro active:scale-[.99] transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.23-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43m8.03-17.46A11.27 11.27 0 0 0 12.05.71C5.79.71.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.29l5.69-1.49a11.33 11.33 0 0 0 5.75 1.47h.01c6.26 0 11.35-5.1 11.35-11.36 0-3.03-1.18-5.88-3.33-8.02"/></svg>
+              Cotizar sin compromiso vía WhatsApp
+            </button>
+            <p id="form-estado" class="mt-4 text-center text-sm text-niebla" role="status" aria-live="polite">Se abrirá WhatsApp en una pestaña nueva.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-white/[.06] bg-obsidian">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <p class="font-display text-2xl tracking-[0.16em]">SORA <span class="text-oro">EVENTOS</span></p>
+          <p class="mt-1 text-sm text-niebla">Alexis Carmona Catering</p>
+          <p class="mt-6 max-w-[40ch] text-niebla leading-relaxed">Banquetes, mesas temáticas y servicio profesional para bodas, XV años, cumpleaños y eventos corporativos.</p>
+        </div>
+
+        <div class="md:col-span-3">
+          <h2 class="text-sm font-semibold text-hueso">Contacto</h2>
+          <ul class="mt-4 space-y-3 text-niebla">
+            <li><a class="inline-flex items-center gap-2.5 hover:text-oro transition tabular" href="https://wa.me/526121553885" target="_blank" rel="noopener"><i data-lucide="message-circle" class="h-4 w-4 text-oro"></i>+52 612 155 3885</a></li>
+            <li><a class="inline-flex items-center gap-2.5 hover:text-oro transition tabular" href="tel:+526121553885"><i data-lucide="phone" class="h-4 w-4 text-oro"></i>Llamar</a></li>
+            <li class="inline-flex items-center gap-2.5"><i data-lucide="map-pin" class="h-4 w-4 text-oro"></i>La Paz, B.C.S., México</li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h2 class="text-sm font-semibold text-hueso">Horario de oficina y degustaciones</h2>
+          <dl class="mt-4 divide-y divide-white/[.06] rounded-2xl border border-white/[.08]">
+            <div class="flex items-center justify-between gap-4 px-4 py-3.5">
+              <dt>Lunes a Jueves</dt>
+              <dd class="inline-flex items-center gap-2 text-oro font-medium"><i data-lucide="calendar-check" class="h-4 w-4"></i>Solo con cita</dd>
+            </div>
+            <div class="flex items-center justify-between gap-4 px-4 py-3.5">
+              <dt>Viernes a Domingo</dt>
+              <dd class="text-niebla">Cerrado</dd>
+            </div>
+          </dl>
+          <p class="mt-3 text-sm text-niebla">Los fines de semana estamos atendiendo eventos. Escríbenos y agendamos tu cita.</p>
+        </div>
+      </div>
+
+      <div class="mt-14 flex flex-col gap-3 border-t border-white/[.06] pt-6 text-xs text-niebla sm:flex-row sm:justify-between">
+        <p>© <span id="anio">2026</span> Sora Eventos · Alexis Carmona Catering</p>
+        <p>Fotografías ilustrativas de Unsplash.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a id="waFlotante" href="https://wa.me/526121553885?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20evento%20con%20Sora%20Eventos." target="_blank" rel="noopener"
+     aria-label="Escríbenos por WhatsApp"
+     class="fixed bottom-5 right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_-8px_rgba(0,0,0,.7)] transition hover:scale-105 active:scale-95"
+     style="bottom: max(1.25rem, env(safe-area-inset-bottom));">
+    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.23-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43m8.03-17.46A11.27 11.27 0 0 0 12.05.71C5.79.71.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.29l5.69-1.49a11.33 11.33 0 0 0 5.75 1.47h.01c6.26 0 11.35-5.1 11.35-11.36 0-3.03-1.18-5.88-3.33-8.02"/></svg>
+  </a>
+
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var WHATSAPP = '526121553885';
+
+      // Iconos
+      if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.6 } });
+
+      document.getElementById('anio').textContent = new Date().getFullYear();
+
+      // ---------- Menú móvil ----------
+      var menuBtn = document.getElementById('menuBtn');
+      var menu = document.getElementById('menuMovil');
+      function cerrarMenu() { menu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.setAttribute('aria-label', 'Abrir menú'); }
+      menuBtn.addEventListener('click', function () {
+        var abierto = menuBtn.getAttribute('aria-expanded') === 'true';
+        if (abierto) { cerrarMenu(); } else { menu.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded', 'true'); menuBtn.setAttribute('aria-label', 'Cerrar menú'); }
+      });
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', cerrarMenu); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrarMenu(); });
+
+      // ---------- Reveal on scroll ----------
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && document.documentElement.classList.contains('js-anim')) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('is-in'); });
+      }
+
+      // ---------- Neón: se enciende una vez ----------
+      var arco = document.querySelector('.neon-arch');
+      if (arco && 'IntersectionObserver' in window) {
+        var ioN = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { arco.classList.add('is-on'); ioN.disconnect(); }
+        }, { threshold: 0.45 });
+        ioN.observe(arco);
+      } else if (arco) { arco.classList.add('is-on'); }
+
+      // ---------- Tipos de evento ----------
+      var EVENTOS = {
+        'Boda': { titulo: 'Bodas', cta: 'Cotizar mi boda', img: 'photo-1519225421980-715cb0215aed', alt: 'Mesa de boda con flores y vajilla blanca',
+          texto: 'Elegancia, degustación previa y atención al detalle. Diseñamos el menú contigo y lo probamos antes del gran día.' },
+        'XV Años': { titulo: 'XV Años', cta: 'Cotizar mis XV años', img: 'photo-1470225620780-dba8ba36b745', alt: 'Pista de fiesta con luces y confeti',
+          texto: 'Montajes modernos, iluminación vibrante y barras de bebidas llamativas para que la quinceañera brille toda la noche.' },
+        'Cumpleaños': { titulo: 'Cumpleaños y Reuniones', cta: 'Cotizar mi cumpleaños', img: 'photo-1530103862676-de8c9debad1d', alt: 'Globos de colores en una fiesta de cumpleaños',
+          texto: 'Paquetes flexibles y mesas de snacks para celebrar en grande, desde una reunión íntima hasta una fiesta completa.' },
+        'Evento Corporativo': { titulo: 'Eventos Corporativos', cta: 'Cotizar evento corporativo', img: 'photo-1505236858219-8359eb29e329', alt: 'Salón amplio decorado con telas y luces para un evento formal',
+          texto: 'Puntualidad, presentación ejecutiva y servicio profesional para juntas, lanzamientos, cenas de fin de año y convenciones.' }
+      };
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.evento'));
+      var panel = document.getElementById('panel-evento');
+      var img = document.getElementById('evento-img');
+      var eventoActual = 'Boda';
+
+      function seleccionar(tab, enfocar) {
+        tabs.forEach(function (t) { t.setAttribute('aria-selected', 'false'); t.setAttribute('tabindex', '-1'); });
+        tab.setAttribute('aria-selected', 'true'); tab.removeAttribute('tabindex');
+        if (enfocar) tab.focus();
+        eventoActual = tab.dataset.evento;
+        var d = EVENTOS[eventoActual];
+        panel.setAttribute('aria-labelledby', tab.id);
+        document.getElementById('evento-titulo').textContent = d.titulo;
+        document.getElementById('evento-texto').textContent = d.texto;
+        document.getElementById('evento-cta-texto').textContent = d.cta;
+        var nueva = 'https://images.unsplash.com/' + d.img + '?auto=format&fit=crop&w=1200&q=72';
+        if (img.src !== nueva) {
+          img.style.opacity = '0';
+          var pre = new Image();
+          pre.onload = pre.onerror = function () { img.src = nueva; img.alt = d.alt; img.style.opacity = '1'; };
+          pre.src = nueva;
+        }
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { seleccionar(t, false); });
+        t.addEventListener('keydown', function (e) {
+          var n = null;
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+          if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+          if (e.key === 'Home') n = tabs[0];
+          if (e.key === 'End') n = tabs[tabs.length - 1];
+          if (n) { e.preventDefault(); seleccionar(n, true); }
+        });
+      });
+      // Precarga de las fotos del panel
+      Object.keys(EVENTOS).forEach(function (k) { var p = new Image(); p.src = 'https://images.unsplash.com/' + EVENTOS[k].img + '?auto=format&fit=crop&w=1200&q=72'; });
+
+      // ---------- Cotizador ----------
+      var form = document.getElementById('cotizador');
+      var campos = {
+        nombre: document.getElementById('nombre'),
+        tipo: document.getElementById('tipo'),
+        fecha: document.getElementById('fecha'),
+        invitados: document.getElementById('invitados')
+      };
+      var checks = Array.prototype.slice.call(form.querySelectorAll('input[name="servicios"]'));
+      var preview = document.getElementById('preview');
+      var estado = document.getElementById('form-estado');
+
+      function hoyISO() { var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); }
+      campos.fecha.min = hoyISO();
+
+      function irACotizar(foco) {
+        document.getElementById('cotizar').scrollIntoView({ behavior: document.documentElement.classList.contains('js-anim') ? 'smooth' : 'auto', block: 'start' });
+        if (foco) setTimeout(function () { foco.focus({ preventScroll: true }); }, 650);
+      }
+
+      document.getElementById('evento-cta').addEventListener('click', function () {
+        campos.tipo.value = eventoActual; limpiarError('tipo'); actualizarPreview();
+        irACotizar(campos.nombre.value ? campos.fecha : campos.nombre);
+      });
+      document.querySelectorAll('[data-servicio]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          checks.forEach(function (c) { if (c.value === a.dataset.servicio) c.checked = true; });
+          limpiarError('servicios'); actualizarPreview(); irACotizar(campos.nombre);
+        });
+      });
+
+      function fechaLarga(iso) {
+        if (!iso) return '';
+        var p = iso.split('-');
+        var d = new Date(+p[0], +p[1] - 1, +p[2]);
+        try { return d.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); }
+        catch (e) { return iso; }
+      }
+      function serviciosSel() { return checks.filter(function (c) { return c.checked; }).map(function (c) { return c.value; }); }
+
+      function construirMensaje() {
+        var nombre = campos.nombre.value.trim();
+        var serv = serviciosSel();
+        var lineas = [
+          '¡Hola, Sora Eventos! Me gustaría cotizar un evento.',
+          '',
+          '• Nombre: ' + (nombre || '—'),
+          '• Tipo de evento: ' + (campos.tipo.value || '—'),
+          '• Fecha tentativa: ' + (fechaLarga(campos.fecha.value) || '—'),
+          '• Invitados: ' + (campos.invitados.value || '—'),
+          '• Servicios de interés: ' + (serv.length ? serv.join(', ') : '—'),
+          '',
+          '¿Me pueden compartir opciones y disponibilidad? ¡Gracias!'
+        ];
+        return lineas.join('\n');
+      }
+      function actualizarPreview() { if (preview) preview.textContent = construirMensaje(); }
+
+      function mostrarError(clave, msg) {
+        var p = document.getElementById('err-' + clave);
+        p.textContent = msg; p.classList.remove('hidden');
+        if (campos[clave]) campos[clave].setAttribute('aria-invalid', 'true');
+      }
+      function limpiarError(clave) {
+        var p = document.getElementById('err-' + clave);
+        p.textContent = ''; p.classList.add('hidden');
+        if (campos[clave]) campos[clave].removeAttribute('aria-invalid');
+      }
+
+      function validar() {
+        var primero = null; var ok = true;
+        function fallo(clave, msg, el) { ok = false; mostrarError(clave, msg); if (!primero) primero = el; }
+        ['nombre', 'tipo', 'fecha', 'invitados', 'servicios'].forEach(limpiarError);
+
+        if (campos.nombre.value.trim().length < 2) fallo('nombre', 'Escribe tu nombre para saber a quién responder.', campos.nombre);
+        if (!campos.tipo.value) fallo('tipo', 'Elige qué tipo de evento es.', campos.tipo);
+        if (!campos.fecha.value) fallo('fecha', 'Indica una fecha aproximada; puede cambiar después.', campos.fecha);
+        else if (campos.fecha.value < hoyISO()) fallo('fecha', 'Esa fecha ya pasó. Elige una fecha a partir de hoy.', campos.fecha);
+        if (!campos.invitados.value) fallo('invitados', 'Elige un rango de invitados.', campos.invitados);
+        if (!serviciosSel().length) fallo('servicios', 'Marca al menos un servicio que te interese.', checks[0]);
+
+        if (primero) primero.focus();
+        return ok;
+      }
+
+      Object.keys(campos).forEach(function (k) {
+        campos[k].addEventListener('input', function () { limpiarError(k); actualizarPreview(); });
+        campos[k].addEventListener('change', function () { limpiarError(k); actualizarPreview(); });
+      });
+      checks.forEach(function (c) { c.addEventListener('change', function () { limpiarError('servicios'); actualizarPreview(); }); });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!validar()) {
+          estado.textContent = 'Revisa los campos marcados.';
+          estado.className = 'mt-4 text-center text-sm text-red-400';
+          return;
+        }
+        var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(construirMensaje());
+        var ventana = window.open(url, '_blank', 'noopener');
+        estado.className = 'mt-4 text-center text-sm text-oro';
+        if (ventana) {
+          estado.textContent = 'Listo. Envía el mensaje en WhatsApp y te respondemos pronto.';
+        } else {
+          estado.innerHTML = '';
+          var a = document.createElement('a');
+          a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.className = 'underline';
+          a.textContent = 'Toca aquí para abrir WhatsApp';
+          estado.appendChild(a);
+        }
+      });
+
+      actualizarPreview();
+    })();
+  </script>
+</body>
+</html>
