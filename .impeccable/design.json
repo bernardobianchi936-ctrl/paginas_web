@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-11-23T03:00:19+00:00",
-  "title": "Design System: Sora Eventos",
+  "title": "Design System: Eventos ALE",
   "extensions": {
     "colorMeta": {
       "obsidian": {
@@ -212,7 +212,7 @@
       },
       "wordmark": {
         "displayName": "Wordmark",
-        "purpose": "SORA EVENTOS in nav and footer, uppercase, second word gold."
+        "purpose": "EVENTOS ALE in nav and footer, uppercase, second word gold."
       },
       "body": {
         "displayName": "Body",
@@ -362,7 +362,7 @@
       "kind": "nav",
       "refersTo": "nav-pill",
       "description": "Floating dark-glass pill: wordmark left, mist links, gold WhatsApp pill right.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-mark\" href=\"#\"><span class=\"ds-mark-w\">SORA <b>EVENTOS</b></span><span class=\"ds-mark-by\">by Alexis Carmona Catering</span></a><span class=\"ds-links\"><a href=\"#\">Servicios</a><a href=\"#\">Eventos</a><a href=\"#\">Cotizar</a></span><a class=\"ds-nav-cta\" href=\"#\">Cotizar por WhatsApp</a></nav>",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-mark\" href=\"#\"><span class=\"ds-mark-w\">EVENTOS <b>ALE</b></span><span class=\"ds-mark-by\">by Alexis Carmona Catering</span></a><span class=\"ds-links\"><a href=\"#\">Servicios</a><a href=\"#\">Eventos</a><a href=\"#\">Cotizar</a></span><a class=\"ds-nav-cta\" href=\"#\">Cotizar por WhatsApp</a></nav>",
       "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(15,17,21,.85);backdrop-filter:blur(24px) saturate(1.5);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:12px 24px;box-shadow:0 10px 40px -12px rgba(0,0,0,.6)}.ds-mark{display:flex;flex-direction:column;text-decoration:none;line-height:1}.ds-mark-w{font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;letter-spacing:.18em;color:#F8FAFC}.ds-mark-w b{font-weight:400;color:#D4AF37}.ds-mark-by{font-family:'Plus Jakarta Sans',system-ui,sans-serif;margin-top:4px;font-size:.68rem;letter-spacing:.08em;color:#94A3B8}.ds-links{display:flex;gap:24px}.ds-links a{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:.875rem;color:#94A3B8;text-decoration:none;transition:color .15s}.ds-links a:hover{color:#F8FAFC}.ds-nav-cta{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#D4AF37;color:#0F1115;font-size:.875rem;font-weight:600;padding:10px 16px;border-radius:9999px;text-decoration:none}.ds-nav-cta:hover{background:#E6C866}.ds-nav a:focus-visible{outline:2px solid #D4AF37;outline-offset:3px}"
     },
     {

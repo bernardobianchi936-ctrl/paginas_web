@@ -1,5 +1,5 @@
 ---
-name: Sora Eventos
+name: Eventos ALE
 description: One evening of service in La Paz, from candle-gold banquet light to the cyan neon of the bar, ending at a WhatsApp quote.
 colors:
   obsidian: "#0F1115"
@@ -123,7 +123,7 @@ components:
     padding: "12px 24px"
 ---
 
-# Design System: Sora Eventos
+# Design System: Eventos ALE
 
 ## Overview
 
@@ -182,7 +182,7 @@ A night palette: near-black slate grounds, one warm metal and one cold light, wi
 - **Display** (500, clamp(2.6rem, 7.2vw, 5.6rem), 1.02, −0.02em): the hero H1 only, max 14ch, bottom-left over the photo.
 - **Headline** (400, clamp(2rem, 4.4vw, 3.4rem), 1.08, −0.015em): every section H2. Carries one accent phrase in gold (or neon in the bar), often italic.
 - **Title** (400, 1.875rem rising to 2.3rem on the large plate, 1.25): plate and panel headings; smaller plates step down to 1.45–1.75rem. Event option names use 1.25rem.
-- **Wordmark** (400, 1.25rem, 0.18em tracking, uppercase): "SORA EVENTOS" in the nav and footer, second word in gold.
+- **Wordmark** (400, 1.25rem, 0.18em tracking, uppercase): "EVENTOS ALE" in the nav and footer, second word in gold.
 - **Body** (400, 1rem–1.125rem, 1.625): paragraphs held to 44–56ch.
 - **Label** (600, 0.95rem): buttons and option titles. Form labels use 500 at 0.875rem.
 - **Caption** (400, 0.875rem): secondary lines, meta row, footer details; 0.75rem for photo chips and legal lines.

@@ -16,7 +16,7 @@ People in La Paz, Baja California Sur, planning a private or corporate celebrati
 
 ## Product Purpose
 
-Landing page for **Sora Eventos — Alexis Carmona Catering**, an event catering and organization business. It shows the services and work, then turns interest into a WhatsApp conversation with a pre-filled quote request. Success means a visitor sends a WhatsApp quote request with enough detail (event type, date, guests, services) for the business to answer.
+Landing page for **Eventos ALE — Alexis Carmona Catering**, an event catering and organization business. It shows the services and work, then turns interest into a WhatsApp conversation with a pre-filled quote request. Success means a visitor sends a WhatsApp quote request with enough detail (event type, date, guests, services) for the business to answer.
 
 ## Positioning
 
@@ -26,7 +26,7 @@ A single team that brings the banquet, a mobile cocktail bar with a neon-lit cou
 
 - Quotes and conversations happen on WhatsApp: +52 612 155 3885 (wa.me/526121553885).
 - Office and tasting hours: Monday to Thursday by appointment only. Friday, Saturday and Sunday the office is closed because the team is running events.
-- The business has an older Facebook presence as "Eventos ALE" (posts from 2016).
+- The business is on Facebook as "Eventos ALE" (posts from 2016).
 
 ## Capabilities and Constraints
 
@@ -36,7 +36,7 @@ A single team that brings the banquet, a mobile cocktail bar with a neon-lit cou
 
 ## Brand Commitments
 
-- Name: "Sora Eventos", with "by Alexis Carmona Catering".
+- Name: "Eventos ALE", with "by Alexis Carmona Catering".
 - Voice from the business's own profile: "Creamos experiencias únicas para tus eventos", "Calidad, presentación y atención que marcan la diferencia", "Cotiza sin compromiso". Spanish (Mexico), warm and direct.
 - Visual direction pinned by the user's brief: dark charcoal ground (#0F1115 / #161920), champagne gold (#D4AF37), a cyan neon accent (#2DD4BF) for the cocktail bar, off-white and slate text, Playfair Display and Plus Jakarta Sans.
 
